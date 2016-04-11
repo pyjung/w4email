@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <title>Send An E-mail</title>    
+        
+        <style>
+            
+            .container {
+                margin-top: 100px;
+            }
+            
+
+            h1 {
+                
+                text-align: center;
+                font-family: cursive;
+            }
+            
+            .alert {
+                font-size: 15px;
+                font-family: Helvetica;serif
+            }
+            
+            #text {
+                
+                margin-left: 250px;
+                margin-right:250px;
+            }
+            
+
+        </style>
+
+    </head>    
+    
+    
+    <body>
+        
+    
+    <div class="container">   
+        <h1>Send an E-mail!</h1>
+
+        <div class="alert alert-success" role="alert">
+            <div id="text">
+                Your e-mail has been sent successfully!
+                <ul>
+                    <br><li><strong>to:</strong> <%= @recipient %></li>
+                    <br><li><strong>from:</strong> <%= @sender %></li>
+                    <br><li><strong>title:</strong> <%= @title %></li>
+                    <br><li><strong>message:</strong> <%= @message %> </li>
+                </ul>
+
+                <br><br>
+                <a href="/">Write One More</a>
+            </div>
+        </div>
+        
+        
+    </div>    
+    
+
+
+    </body>
+</html>

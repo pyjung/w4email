@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <title>Send An E-mail</title>    
+        
+        <style>
+            
+            .container {
+                margin-top: 100px;
+            }
+            
+            label {
+                
+                font-size: 14px;
+                font-family: Helvetica; sans-serif
+            }
+            
+             body {
+                 background: linear-gradient( 56deg,#50b4aa,#2f344b);
+                 overflow: auto;
+             }
+             
+            h1 {
+                
+                text-align: center;
+                font-family: cursive;
+            }
+             
+
+        </style>
+
+    </head>    
+    
+    
+    <body>
+        
+    <form action="/emailsent" method="POST">
+    <div class="container">   
+        <h1>Send an E-mail!</h1>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Recipient's address</label>
+            <input name="recipient" type="email" class="form-control" id="exampleInputEmail1" placeholder="Who do you wish to send a mail to">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputPassword1">Sender's address</label>
+            <input name="sender" type="email" class="form-control" id="exampleInputPassword1" placeholder="Who are you">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputPassword1">Title</label>
+            <input name="title" type="text" class="form-control" id="exampleInputPassword1" placeholder="The title please">
+        </div>
+        
+
+            <label for="exampleInputPassword1">Content</label>
+            <textarea name="content" type="text" class="form-control" id="exampleInputPassword1" placeholder="And whatever you want to say">
+            </textarea>
+      
+        <button href='/emailsent' style="margin-top: 30px" type="submit" class="btn btn-default">Send!</button>
+    </div>    
+    </form>
+
+
+    </body>
+</html>
