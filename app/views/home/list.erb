@@ -56,46 +56,34 @@
                 font-family: 돋움; sans-serif;
                 color:white;
                 text-shadow: 0 1px 2px black;
-            
-            
-            .alert {
-                font-size: 15px;
-                font-family: Helvetica;serif
             }
-            
-            #text {
-                
-                margin-left: 250px;
-                margin-right:250px;
-            }
+             
         </style>
     </head>    
     <body>
-     <div id="background">  
-    
-    <div class="container">   
-        <h1>♥ Success! ♥</h1>
+        
+    <div id=background>   
+
+        <div class="container">   
+        <h1>♥ Sent Record ♥</h1>
         <h6>스페이스바를 많이 눌러보세용!</h6>
         <br>
-        <div class="alert alert-success" role="alert">
-            <div id="text">
-                Your e-mail has been sent successfully!
-                <ul>
-                    <br><li><strong>to:</strong> <%= @recipient %></li>
-                    <br><li><strong>from:</strong> <%= @sender %></li>
-                    <br><li><strong>title:</strong> <%= @title %></li>
-                    <br><li><strong>message:</strong> <%= @content %> </li>
-                </ul>
 
-                <br><br>
-                <h3><a href="/">Write One More</a><br>
-                <a href ="/list">See Past Emails</a></h3>
+            <% @every_post.each do |p| %>
+            <div class="panel panel-default">
+              <div class="panel-heading"><%= p.title %></div>
+              <div class="panel-body">
+                Content: <%= p.content %> <br>
+                Time: <%= p.created_at %>
+              </div>
             </div>
-        </div>
-    </div>    
+            <% end %>
+            
+            <h3><a href="/">Go back to write more!</a></h3>
+            
+        </div>    
     </div>
-    
-     <script>
+    <script>
         
         var bg = document.getElementById("background");
         var out = document.getElementById("gradient");
@@ -120,9 +108,5 @@
         }
                 
     </script>
-
-
     </body>
 </html>
-
-

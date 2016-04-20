@@ -2,47 +2,70 @@
 <html>
     
     <head>
-        
-        <title>Send An E-mail</title>    
+        <link href='https://fonts.googleapis.com/css?family=Lobster+Two:400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+       <title>무지개 이메일</title>   
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         
         <style>
-            
             .container {
+            
                 margin-top: 100px;
+            
             }
             
             label {
                 
                 font-size: 14px;
                 font-family: Helvetica; sans-serif
+
             }
             
             html {
+            
                 height: 100%;
+            
             }
             
-             body {
-                 background: linear-gradient( 56deg,#50b4aa,#2f344b);
-                 overflow: auto;
-             }
+            #background {
+                background: linear-gradient( 45deg, black, black); 
+                overflow:auto;
+                position:fixed;
+                top:0;
+                right:0;
+                left:0;
+                bottom:0;
+            }
              
             h1 {
                 
                 text-align: center;
-                font-family: cursive;
+                color:white;
+                text-shadow:0 1px 2px black;
+                font-family: 'Lobster Two', cursive;
+                font-size: 70px;
+            }
+            
+            h6 {
+                
+                text-align: center;
+                font-family: 돋움; sans-serif;
+                color:white;
+                text-shadow:0 1px 2px black;
             }
              
-
         </style>
-
     </head>    
-    
-    
     <body>
         
+    <div id=background>   
     <form action="/emailsent" method="POST">
     <div class="container">   
-        <h1>Send an E-mail!</h1>
+        <h1>♥ Rainbow Email ♥</h1>
+        <h6>스페이스바를 많이 눌러보세용!</h6>
+        <br>
         <div class="form-group">
             <label for="exampleInputEmail1">Recipient's address</label>
             <input name="recipient" type="email" class="form-control" id="exampleInputEmail1" placeholder="Who do you wish to send a mail to">
@@ -50,7 +73,7 @@
         
         <div class="form-group">
             <label for="exampleInputPassword1">Sender's address</label>
-            <input name="sender" type="email" class="form-control" id="exampleInputPassword1" placeholder="Who are you">
+            <input name="sender" type="email" class="form-control" id="exampleInputPassword1" placeholder="jungsmisc@gmail.com을 써야 작동합니다">
         </div>
         
         <div class="form-group">
@@ -58,7 +81,6 @@
             <input name="title" type="text" class="form-control" id="exampleInputPassword1" placeholder="The title please">
         </div>
         
-
             <label for="exampleInputPassword1">Content</label>
             <textarea name="content" type="text" class="form-control" id="exampleInputPassword1" placeholder="And whatever you want to say">
             </textarea>
@@ -66,7 +88,31 @@
         <button href='/emailsent' style="margin-top: 30px" type="submit" class="btn btn-default">Send!</button>
     </div>    
     </form>
-
-
+    </div>
+    <script>
+        
+        var bg = document.getElementById("background");
+        var out = document.getElementById("gradient");
+        
+        document.body.onkeyup = function(e) {
+          if (e.keyCode == 32) {
+            randomBackground();
+          }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+          randomBackground();
+        }, false);
+        
+        function randomBackground() {
+          var from = '#' + Math.floor(Math.random() * 16777215).toString(16);
+          var to = '#' + Math.floor(Math.random() * 16777215).toString(16);
+          var deg = Math.floor(Math.random() * 100).toString();
+          var gradient = 'linear-gradient(' + deg + 'deg,' + from + ',' + to + ')';
+          bg.style.background = gradient;
+          out.innerHTML = "background:" + gradient + ";";
+        }
+                
+    </script>
     </body>
 </html>

@@ -24,9 +24,16 @@ class HomeController < ApplicationController
         
         result = mg_client.send_message('sandboxa746f5fbd5014767ac138b88bb85b2f6.mailgun.org', message_params).to_h!
         
-        message_id = result['id']
-        message = result['message']
+        new_post = Email.new
+        new_post.title = @title
+        new_post.content = @content
+        new_post.save
         
     end
     
+    def list
+        
+        @every_post = Email.all.order("id desc")
+        
+    end
 end

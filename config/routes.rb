@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   get '/' => 'home#begin'
   post '/emailsent' => 'home#input'
+  get '/list' => 'home#list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
